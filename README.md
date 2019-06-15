@@ -1,7 +1,32 @@
 # Chat It App
+# Simple and fun chatting app built using the MEAN stack. 
 
+## Implemented Features
 
-## Environment Settings
+- Chat rooms with ability to send text, images, GIFs, webms, and embedded YouTube videos
+- Account creation, login, and authentication
+- Room creation with option to secure with password
+- Friend system
+- Notification system for friend requests and room invites
+- Unfinished profile section
+
+## Todo Features
+
+- Email verification on new accounts
+- Add different room types such as game rooms (rock,paper,scissors) or data rooms (graphs & tables)
+- Allow room organizers/creators to have ability to edit title, room type, and to kick/ban users
+- Allow user to modify profile picture and password
+- Add "User is typing" feature
+- Create a chatbot for more user interaction
+- Add more navigation buttons
+
+## Angular Environment Settings
+
+Modify the environment.ts file to match the the URL path used for the Node server API
+
+## Node Server Environment Settings
+
+Server files are found in "src/server"
 
 Node server uses:
 
@@ -27,7 +52,7 @@ Make sure to add this directory structure to the server folder:
       
      
 
-## Environment Variables
+## Node Environment Variables
 
 Environment Variables include:
 
@@ -53,4 +78,3 @@ use "npm run watch:server" to run just the Node server
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `src/server/public` directory. Use the `--prod` flag for a production build.
-
