@@ -1,0 +1,60 @@
+[
+  { 
+    "roomID": "4324", 
+    "roomDesc": "It's happening here.", 
+    "password": "hooga",
+    "messages": [
+      {
+        "from":"bob",
+        "messageType":"text",
+        "time":"wooga booha"
+      },
+      {
+        "from":"bob",
+        "messageType":"text",
+        "time":"11:24"
+      }
+    ],
+    "dateCreated": "2012-04-23T18:25:43.511Z"
+
+
+  },
+  { 
+    "roomID": "31231", 
+    "roomDesc": "Stuff n stuff", 
+    "password": "hooga",
+    "messages": [
+      {
+        "from":"bob",
+        "messageType":"text",
+        "time":"11:23"
+      },
+      {
+        "from":"bob",
+        "messageType":"text",
+        "time":"11:24"
+      }
+    ],
+    "dateCreated": "2012-04-23T18:25:43.511Z"
+  },
+  { 
+    "roomID": "43524", 
+    "roomDesc": "Chillin'", 
+    "password": "hooga",
+    "messages": [
+      {
+        "from":"bob",
+        "messageType":"text",
+        "payload":"Hooga booga"
+      },
+      {
+        "from":"bob",
+        "messageType":"text",
+        "time":"bailey"
+      }
+    ],
+    "dateCreated": "2012-04-23T18:25:43.511Z"
+
+
+  }
+]

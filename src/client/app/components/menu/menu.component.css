@@ -1,0 +1,58 @@
+.container{
+    position: fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    /* background-image: url("../../../assets/images/anas-alshanti-169265-unsplash.jpg");
+    background-size: cover; */
+
+}
+
+.menu-greeting{
+    text-align: -webkit-center;
+}
+
+.menu-actions{}
+
+.fixed-toolbar{
+    position: fixed;
+    top:0;
+    right:0;
+    left:0;
+    z-index: 999;
+}
+
+.profile-image{
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
+    background-size: cover;
+}
+
+
+.container .mat-drawer{
+    min-width:200px;
+    /* margin-bottom: 67px; */
+}
+
+.container .mat-drawer .mat-button{
+    display:block;
+    width:100%;
+    text-align:left;
+}
+
+.menubutton{
+    width:100px;
+    color:white;
+    float: right;
+}
+
+.spacer{
+    flex: 1 1 auto;
+}
+
+.button.logout{
+    margin: 10px 20px;
+}

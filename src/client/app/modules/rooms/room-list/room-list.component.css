@@ -1,0 +1,50 @@
+.mat-card{
+    width:250px;
+    margin:15px;
+    float:left;
+}
+
+.example-card{
+    max-width: 400px;
+}
+.profile-image{
+    height: 40px;
+    width: 40px;
+    /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
+    background-size: cover;
+}
+
+.flex-spacer{
+    width:100% !important; 
+}
+
+.topic-chip{
+}
+
+
+.mat-card-avatar{
+    /* background-image:url('/assets/img/sample.jpg'); */
+    background-size:cover;
+}
+
+.conversation-header{
+    position: fixed;
+    height: 54px;
+    top: 64px;
+    right: 0;
+    left: 0;
+    z-index: 999;}
+
+.mat-card-header{
+    width:100%
+}
+
+.mat-card-actions{
+    display:flex;
+    bottom: 15px;
+    justify-content: space-between !important;
+}
+
+.mat-card-actions .flex-spacer{
+    width:100%;
+}

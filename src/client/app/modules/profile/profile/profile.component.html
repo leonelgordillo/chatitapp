@@ -1,0 +1,26 @@
+<div class=profile-container>
+  <mat-card class="profile-card">
+      <mat-icon class="edit-pic" (click)="uploadProfilePic()">add_a_photo_outline</mat-icon>
+    <div class="profile-image">
+    <img  mat-card-image [src]="profileImage" alt="Profile Image">
+  </div>
+
+  <div *ngIf="profileInfo" class="profile-labels">
+    
+      <mat-card-title class="username"><mat-card-subtitle>Username</mat-card-subtitle>{{profileInfo.username}}<mat-icon class="edit-icon">face</mat-icon>
+      </mat-card-title>
+      <mat-divider></mat-divider>
+      <mat-card-title><mat-card-subtitle>Email ({{profileInfo.emailVerified}})</mat-card-subtitle>{{profileInfo.email}}<mat-icon class="edit-icon">face</mat-icon></mat-card-title>
+      <mat-divider></mat-divider>
+      <mat-card-title><mat-card-subtitle>Account Status</mat-card-subtitle>{{profileInfo.access}}<mat-icon class="edit-icon">face</mat-icon></mat-card-title>
+  </div>
+
+  <mat-icon class="settings-icon" (click)="toggleSettings()">settings</mat-icon>
+
+  <div class="settings-sliders" *ngIf="showSettings">
+      <mat-slide-toggle id="allowInv" (change)="togglePreference($event)" [checked]="allowInv">Allow Invitations</mat-slide-toggle>
+      <mat-slide-toggle id="showCreatedRooms" (change)="togglePreference($event)" [checked]="showCreatedRooms">Show Created Rooms</mat-slide-toggle>
+  </div>
+
+  </mat-card>
+</div>

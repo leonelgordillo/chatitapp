@@ -1,0 +1,72 @@
+.profile-container{
+    text-align: center;
+    float: center;
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+.profile-card{
+    height: 600px;
+    background-image: url('../../../../assets/images/jon-541833-unsplash.jpg');
+    background-size: cover;
+
+}
+
+.mat-card-subtitle{
+    margin-bottom: 0 !important;
+}
+
+.mat-divider{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    position: relative !important;
+}
+
+.username{
+    padding-top: 15px;
+}
+
+.edit-icon{
+    float: right;
+}
+
+.settings-icon{
+    cursor: pointer; 
+}
+
+.settings-sliders{
+    display: flex;
+    flex-direction: column;
+    margin-left: 33%;}
+
+.edit-pic{
+    float: right;
+    bottom:0;
+    color: #ffffffe5;
+    cursor: pointer;
+}
+
+
+.profile-labels{
+    text-align: left;
+    display: unset;
+    width:auto;
+}
+
+img {
+    width: auto;
+    height: 100%;
+    margin-top:0 !important;
+
+}
+
+.profile-image{
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50% !important;
+
+}
+

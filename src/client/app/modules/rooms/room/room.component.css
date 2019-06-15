@@ -1,0 +1,212 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+}
+
+.mat-drawer.mat-drawer-side {
+    padding: 0 5px;
+    margin-bottom: 67px;
+
+
+}
+
+.mat-drawer {
+} 
+
+.mat-drawer-content{
+    /* height: calc(100% - 56px); */
+    /* margin-right: 0 !important; */
+}
+
+.mat-sidenav-content{
+    margin-right: 0;
+    height: calc(100% - 122px);
+    margin-top:54px;
+
+}
+
+.invite-button{
+    position: absolute;
+    width: 87%;
+}
+
+.video-shown{
+}
+
+.webm-shown{
+    width: -webkit-fill-available;
+}
+
+.img-enlarged{
+    
+}
+
+.friend-item{
+    background-color: #90EE90;
+}
+
+.user-item{
+
+}
+
+.organizer-item{
+
+}
+
+.conversation-header{
+    position: sticky;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+    background: #fafafa;
+}
+
+/* .conversation-header h2, .conversation-header p {
+    align-items: center;
+    display: flex;
+} */
+
+.mat-line{
+    white-space: unset !important;
+}
+
+.scrollingDiv{
+    display: flex;
+    flex-direction: column; 
+}
+
+.user{
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.closeIcon{
+    margin-bottom: 8px;
+    color:red;
+}
+
+.time{
+    color: darkgray;
+    font-size: 11px;
+}
+
+/* .conversation-history {
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+} */
+.conversation-history.mat-list {
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+    align-items: baseline !important;
+
+}
+
+.members{
+    padding-top: 2px;
+}
+
+.mat-list-base{
+    height: auto;
+}
+ 
+.empty-conversation h1 {
+    margin: 0;
+}
+
+.user-items{
+    vertical-align: baseline;
+}
+
+.user-button{
+    height: 30px;
+    width: 100%;
+    text-align: -webkit-left;
+}
+
+.message-style{
+    height: auto !important;
+    align-items: baseline !important;
+
+}
+.mat-list-item {
+    align-items: baseline !important;
+    padding: 5px;
+
+}
+
+:host /deep/ .mat-list-item-content {
+    align-items: baseline !important;
+    display: block !important;
+  }
+
+.fixed-toolbar{
+    position: fixed;
+    height: 54px;
+    top:64px;
+    right:0;
+    left:0;
+    z-index: 999;
+}
+
+.spacer{
+    flex: 1 1 auto;
+}
+ 
+.mat-card {
+    height: 100%;
+    min-width: 150px;
+    /* padding: 0 24px; */
+}
+.conversation-input {
+    position: fixed;
+    /* display: flex; */
+    bottom:0;
+    flex: 1 1 auto;
+
+    left:0;
+    width: 100%;
+    background-color: #fafafa;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.room-title{
+    text-align: center;
+}
+ 
+.default-img{
+    cursor: pointer;
+    height: 20%;
+    width: 20%;
+}
+
+.large-img{
+    cursor: pointer;
+    height: -webkit-fill-available;
+    width: auto;}
+
+.mat-list-avatar {
+    margin: 0 5px;
+}
+
+.right {
+    text-align: right;
+}
+ 
+.full-width {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    /* width: 100%; */
+    cursor: pointer;
+}
+

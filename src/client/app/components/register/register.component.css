@@ -1,0 +1,15 @@
+
+.input-container {
+    text-align: center;
+    float: center;
+    margin: 20px auto;
+    max-width: 300px;
+  }
+
+.alert{
+  color: red;
+}
+
+.mat-icon{
+  font-size: 22px;
+}

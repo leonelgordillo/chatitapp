@@ -1,0 +1,16 @@
+.input-container {
+    text-align: center;
+    float: center;
+    margin: 20px auto;
+    max-width: 400px;
+    
+}
+
+.login-container{
+    max-width: 500px;
+    margin:50px auto;
+}
+
+.buttonspace{
+    margin: 10px;
+}

@@ -1,0 +1,37 @@
+<div class="input-container">
+    <mat-card>
+        <mat-card-title>Create Room</mat-card-title>
+        <form [formGroup]="form">
+            <div class="column">
+                <mat-form-field>
+                    <input [ngClass]="{'error': isValid('topic')}" matInput placeholder="Topic" formControlName="topic">
+                </mat-form-field>
+            </div>
+            <mat-form-field>
+                <input [ngClass]="{'error': isValid('password')}" type="password" matInput placeholder="Password (Optional)"
+                    formControlName="password">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-select placeholder="Room Type" formControlName="type" [(value)]="selected">
+                    <mat-option #roomTypeInput matInput *ngFor="let type of roomTypes" [value]="type.value">
+                        {{type.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="selected == 'game'">
+                <mat-select placeholder="Game Type" formControlName="gameType" [(value)]="gameSelected">
+                    <mat-option #roomTypeInput matInput *ngFor="let type of gameTypes" [value]="type.value">
+                        {{type.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field *ngIf="selected == 'yt'">
+                    <input [ngClass]="{'error': isValid('ytUrl')}" matInput placeholder="YouTube URL" formControlName="ytUrl">
+            </mat-form-field>
+            <br>
+            <button type="submit" (click)="onSubmit()" class="buttonspace" mat-raised-button color="primary">Create!</button>
+
+        </form>
+    </mat-card>
+</div>

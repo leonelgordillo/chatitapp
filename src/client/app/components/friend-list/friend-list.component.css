@@ -1,0 +1,22 @@
+.friendTab{
+    max-width: 300px !important;
+}
+.mat-card{
+    max-width: 300px !important;
+}
+
+.friend-button{
+    width:100%;
+    text-align: left;
+}
+
+.pending-friend-button{
+    
+    width:100%;
+    text-align: left;
+
+}
+
+.online-icon{
+    color: lime;
+}

@@ -1,0 +1,79 @@
+<div class="container">
+
+    <div class="notification-title">
+        <h2>
+            Notifications
+            <mat-icon>close</mat-icon>
+        </h2>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-list>
+        <mat-list-item class="notification-item" *ngFor="let notification of notificationList">
+            <button class="friend-notification-button" *ngIf="notification.type=='friend'; else button2"
+                [matMenuTriggerFor]="menu" [matMenuTriggerData]="{from:notification.from, id:notification._id}" mat-button>
+                <div style="padding-top:3px; padding-bottom:3px">
+                    <div class="notification-header">
+                        <p style="margin-bottom: 0px"><b>{{notification.title}} </b></p>
+                        <p style="margin-bottom: 0px; opacity: 0.5;">{{notification.timestamp}}</p>
+                    </div>
+                    <p>{{notification.message}}</p>
+                </div>
+            </button>
+            <ng-template #button2>
+                <button class="invite-notification" [matMenuTriggerFor]="menu2" [matMenuTriggerData]="{room:notification.options[0], id:notification._id}"
+                    mat-button>
+                    <div style="padding-top:3px; padding-bottom:3px">
+                        <div class="notification-header">
+                            <p style="margin-bottom: 0px"><b>{{notification.title}}  </b>-</p>
+                            <p style="margin-bottom: 0px; opacity: 0.5;">{{notification.timestamp}}</p>
+                        </div>
+                        <p>{{notification.message}}</p>
+                    </div>
+                </button>
+            </ng-template>
+            <mat-divider style="display:unset !important;margin-bottom: 1px; "></mat-divider>
+        </mat-list-item>
+
+    </mat-list>
+
+    <button (click)="clearNotifications()" *ngIf="notificationList.length>0;else noNotifications" class="clear-button"
+        mat-raised-button color="warn">
+        Clear All
+    </button>
+
+    <ng-template #noNotifications>
+        <p style="text-align: center; padding-top:5px" class="noNotifications">You have no notifications</p>
+    </ng-template>
+
+    <mat-menu #menu="matMenu">
+        <ng-template matMenuContent let-from="from" let-id="id">
+            <div style="text-align-last: center">
+                <button (click)="acceptFriendRequest(from);removeNotification(id)" mat-menu-item>
+                    <span>Accept</span>
+                </button>
+                <button (click)="rejectFriendRequest(from);removeNotification(id)" mat-menu-item>
+                    <span>Reject</span>
+                </button>
+                <button (click)="removeNotification(id)" mat-menu-item>
+                    <span>Dismiss</span>
+                </button>
+            </div>
+        </ng-template>
+
+    </mat-menu>
+
+
+    <mat-menu #menu2="matMenu">
+        <ng-template matMenuContent let-room="room" let-id="id">
+            <div style="text-align-last: center">
+                <button [routerLink]="['/rooms', room]" mat-menu-item>
+                    <span>Join Room</span>
+                </button>
+                <button (click)="removeNotification(id)" mat-menu-item>
+                    <span>Dismiss</span>
+                </button>
+            </div>
+        </ng-template>
+    </mat-menu>
+
+</div>

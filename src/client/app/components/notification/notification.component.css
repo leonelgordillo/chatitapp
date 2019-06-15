@@ -1,0 +1,51 @@
+.container{
+    position: relative;
+    height: 100%;
+    align-items: center
+}
+.clear-button{
+    position: absolute;
+    width: 100%;
+}
+
+.notification-header{
+
+    display: inline-flex;
+}
+
+.friend-notification-button{
+    width: 100%;
+}
+
+.notification-title{
+    position: sticky;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+    background: #fafafa;
+    width:auto;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.mat-menu-content{
+    text-align: center;
+}
+
+.invite-notification{
+    width: 100%;
+}
+
+.notification-item{
+    height: unset !important;
+
+}
+
+.friend-notification-menu{
+    align-items: center;
+}
+
+.invite-notification-menu{
+    align-items:center;
+}

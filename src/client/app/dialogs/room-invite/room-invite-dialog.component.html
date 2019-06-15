@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Invite Friends<mat-divider></mat-divider></h1>
+<div mat-dialog-content>
+  <p>Select from list of online friends:</p>
+    
+<!-- <input (keyup.enter)="onSubmit(friend)" cdkFocusInitial matInput [(ngModel)]="url"> -->
+<div class="friend-options">    
+<mat-checkbox [(ngModel)]="friend.checked" *ngFor="let friend of checkboxArray">{{friend.friend}}</mat-checkbox>
+<p *ngIf="!checkboxArray" style="padding-bottom: 5px">You have no online friends</p>
+</div>
+</div>
+<div *ngIf="!checkboxArray">
+  <button mat-button (click)="onNoClick()">OK</button>
+</div>
+<div mat-dialog-actions *ngIf="checkboxArray">
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button (click)="onSubmit()" mat-raised-button color="primary">Send</button>
+  </div>

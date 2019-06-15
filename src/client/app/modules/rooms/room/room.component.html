@@ -1,0 +1,167 @@
+<div class="inner-content">
+
+  <mat-sidenav-container cdkScrollable #scrollNav (backdropClick)="close('backdrop')" [hasBackdrop]="false" class="container">
+    <mat-sidenav-content #scrollNav>
+
+      <div #scrollMe>
+
+
+        <mat-toolbar color="secondary" class="fixed-toolbar" layout="row">
+
+          <!-- <mat-card-title *ngIf="roomInfo">{{roomInfo.topic}}</mat-card-title> -->
+          <button mat-icon-button routerLink="/rooms">
+            <mat-icon matTooltip="Back to Rooms">arrow_back</mat-icon>
+          </button>
+          <span class="spacer"></span>
+          <button mat-icon-button (click)="sideList.open()">
+
+            <mat-icon matTooltip="Users in Room">face</mat-icon>
+          </button>
+        </mat-toolbar>
+        <div class="conversation-header" *ngIf="roomInfo">
+          <!-- TOPIC MEDIA HERE!!!-->
+          <h1 *ngIf="roomInfo.type=='general'" class="room-title">{{roomInfo.topic}}</h1>
+          <div #ytVid *ngIf="roomInfo.type =='yt' && roomInfo.ytUrl">
+            <button [ngClass]="{'video-shown':roomInfo.showEmbed}" mat-raised-button color="primary" (click)="toggleTopic(roomInfo)">
+              {{roomInfo.embedButton}} </button>
+
+            <h4 [ngClass]="{'video-shown':roomInfo.showEmbed}">
+              <iframe *ngIf="roomInfo.showEmbed" width="560" height="315" [src]="roomInfo.safeUrl" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+              </iframe>
+            </h4>
+          </div>
+          <mat-divider></mat-divider>
+
+
+        </div>
+        <!-- (click)="sideList.close()" -->
+        <section>
+          <div class="scrollingDiv">
+
+            <div class="conversation-history">
+              <mat-list>
+                <mat-list-item #messageList #item *ngFor="let msg of messages;let i = index;" class="message-style">
+
+                  <h4 matLine *ngIf="msg.mediaType != 'join' && msg.mediaType != 'leave'">
+                    <span class="user">{{msg.user}} </span>
+                    <span class="time"> {{msg.time}}</span>
+                  </h4>
+                  <h4 style="margin-top: auto" *ngIf="msg.mediaType == 'join'">
+                    <span class="user">{{msg.user}} has joined the room at </span>
+                    <span class="time"> {{msg.time}}</span>
+                  </h4>
+                  <h4 *ngIf="msg.mediaType == 'leave'">
+                    <span class="user">{{msg.user}} has left the room at </span>
+                    <span class="time"> {{msg.time}}</span>
+                  </h4>
+                  <h4 *ngIf="msg.mediaType == 'text'" matLine>{{msg.text}}</h4>
+
+                  <div *ngIf="msg.mediaType == 'image'" #messageImg>
+                    <h4>
+                      <img *ngIf="msg.image" [ngClass]="{'large-img':msg.largeImg}" (load)="onImageLoad(i)" (click)="toggleImgSize(msg);scroll(messageImg, msg.largeImg)"
+                        class="default-img" [src]='msg.image'>
+                    </h4>
+                  </div>
+                  <div #ytVid *ngIf="msg.mediaType == 'yt'">
+                    <button [ngClass]="{'video-shown':msg.showEmbed}" mat-raised-button color="primary" (click)="toggleEmbed(msg);scroll(ytVid, msg.showEmbed)">
+                      {{msg.embedButton}} </button>
+
+                    <h4 [ngClass]="{'video-shown':msg.showEmbed}">
+                      <iframe *ngIf="msg.showEmbed" width="560" height="315" [src]="msg.safeUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                      </iframe>
+                    </h4>
+                  </div>
+                  <div #webmVid *ngIf="msg.mediaType == 'webm' || msg.mediaType == 'mp4'">
+                    <button mat-raised-button color="primary" (click)="toggleWebm(msg);scroll(webmVid, msg.showWebm)">
+                      {{msg.webmButton}} </button>
+                    <h4>
+                      <video class="webm-shown" *ngIf="msg.media && msg.showWebm" autoplay='false' controls='true'>
+                        <source (load)="scrollToBottom()" [src]='msg.media' type="video/webm" />
+                      </video>
+                    </h4>
+                  </div>
+                  <h4 *ngIf="msg.mediaType == 'gif'" matLine>{{msg.text}}</h4>
+
+                </mat-list-item>
+              </mat-list>
+            </div>
+            <div class="conversation-input">
+              <mat-divider></mat-divider>
+
+              <mat-form-field class="full-width">
+                <input cdkFocusInitial (keyup.enter)="sendText(text)" matInput placeholder="Start chatting..."
+                  autocomplete="off" name="text" [(ngModel)]="text">
+                <mat-icon matSuffix (click)="sendText(text)">send</mat-icon> <!-- (click)="" -->
+                <mat-icon matSuffix [matMenuTriggerFor]="menu2">attach_file</mat-icon> <!-- (click)="" -->
+                <!-- <mat-icon matSuffix (click)="uploadImg(text)">attach_file</mat-icon> -->
+              </mat-form-field>
+            </div>
+          </div>
+          <mat-menu #menu2="matMenu">
+            <button mat-menu-item (click)="uploadMedia()">
+              <mat-icon>insert_photo</mat-icon>
+              <span>Upload Media</span>
+            </button>
+            <button mat-menu-item (click)="openYTDialog()">
+              <mat-icon>
+                <fa-icon [icon]="faYoutube"></fa-icon>
+              </mat-icon>
+              <span>YT Link</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>delete</mat-icon>
+              <span>Report</span>
+            </button>
+          </mat-menu>
+
+        </section>
+      </div>
+
+    </mat-sidenav-content>
+    <mat-sidenav #sideList position="end" mode="side">
+      <mat-card *ngIf="roomUsers">
+        <h2>
+          Online Users
+          <button mat-button (click)="sideList.close()">
+            <mat-icon class="closeIcon">close</mat-icon>
+          </button>
+          <mat-divider></mat-divider>
+
+        </h2>
+
+        <mat-list *ngFor="let user of roomUsers.online" class="members">
+
+          <!-- Add avatar profile and get ref from server with directory + username.jpg etc -->
+          <button class="user-button" mat-button [matMenuTriggerFor]="menu" [ngClass]="{'friend-item': friendsInRoom.includes(user), 'user-item': username==user}">
+            {{user}}
+            <span class="user-items"> <span *ngIf="username==user"> (me) </span>
+              <fa-icon *ngIf="user==roomInfo?.organizer" [icon]="faCrown"></fa-icon>
+            </span>
+
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item [routerLink]="['/profile', user]">
+              <mat-icon>mode_comment</mat-icon>
+              <span>View Profile</span>
+            </button>
+            <button *ngIf="user!=username && !friendsInRoom.includes(user)" mat-menu-item (click)="addFriend(user)">
+              <mat-icon>add</mat-icon>
+              <span>Add Friend</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>delete</mat-icon>
+              <span>Report</span>
+            </button>
+          </mat-menu>
+        </mat-list>
+        <button mat-raised-button color="primary" class="invite-button" (click)="openFriendInviteDialog()">Invite
+          Friends</button>
+      </mat-card>
+    </mat-sidenav>
+
+
+  </mat-sidenav-container>
+
+</div>

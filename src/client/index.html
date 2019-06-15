@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Chat It App</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="icons/chaticon-96.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#673ab7">
+  
+  <!-- iOs Meta Tags for PWA -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" href="icons/chaticon-120.png" sizes="120x120">
+  <link rel="apple-touch-icon" href="icons/chaticon-180.png" sizes="180x180">
+
+  <style type="text/css">
+
+
+
+    .app-loading {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .app-loading .spinner {
+      height: 200px;
+      width: 200px;
+      animation: rotate 2s linear infinite;
+      transform-origin: center center;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    .app-loading .spinner .path {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+      animation: dash 1.5s ease-in-out infinite;
+      stroke-linecap: round;
+      stroke: #ddd;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <app-root>
+    <div class="app-loading">
+      <div class="logo">
+          <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="uil-default"><path fill="none" class="bk" d="M0 0h100v100H0z"/><rect x="46.5" y="40" width="7" height="20" rx="5" ry="5" fill="#0275d8" transform="translate(0 -30)"><animate attributeName="opacity" from="1" to="0" dur="1s" begin="0s" repeatCount="indefinite"/></rect><rect x="46.5" y="40" width="7" height="20" rx="5" ry="5" fill="#0275d8" transform="rotate(30 105.98 65)"><animate attributeName="opacity" from="1" to="0" dur="1s" begin="0.08333333333333333s" repeatCount="indefinite"/></rect><rect x="46.5" y="40" width="7" height="20" rx="5" ry="5" fill="#0275d8" transform="rotate(60 75.98 65)"><animate attributeName="opacity" from="1" to="0" dur="1s" begin="0.16666666666666666s" repeatCount="indefinite"/></rect><rect x="46.5" y="40" width="7" height="20" rx="5" ry="5" fill="#0275d8" transform="rotate(90 65 65)"><animate attributeName="opacity" from="1" to="0" dur="1s" begin="0.25s" repeatCount="indefinite"/></rect><rect x="46.5" y="40" width="7" height="20" rx="5" ry="5" fill="#0275d8" transform="rotate(120 58.66 65)"><animate attributeName="opacity" from="1" to="0" dur="1s" begin="0.3333333333333333s" repeatCount="indefinite"/></rect><rect x="46.5" y="40" width="7" height="20" rx="5" ry="5" fill="#0275d8" transform="rotate(150 54.02 65)"><animate attributeName="opacity" from="1" to="0" dur="1s" begin="0.4166666666666667s" repeatCount="indefinite"/></rect><rect x="46.5" y="40" width="7" height="20" rx="5" ry="5" fill="#0275d8" transform="rotate(180 50 65)"><animate attributeName="opacity" from="1" to="0" dur="1s" begin="0.5s" repeatCount="indefinite"/></rect><rect x="46.5" y="40" width="7" height="20" rx="5" ry="5" fill="#0275d8" transform="rotate(-150 45.98 65)"><animate attributeName="opacity" from="1" to="0" dur="1s" begin="0.5833333333333334s" repeatCount="indefinite"/></rect><rect x="46.5" y="40" width="7" height="20" rx="5" ry="5" fill="#0275d8" transform="rotate(-120 41.34 65)"><animate attributeName="opacity" from="1" to="0" dur="1s" begin="0.6666666666666666s" repeatCount="indefinite"/></rect><rect x="46.5" y="40" width="7" height="20" rx="5" ry="5" fill="#0275d8" transform="rotate(-90 35 65)"><animate attributeName="opacity" from="1" to="0" dur="1s" begin="0.75s" repeatCount="indefinite"/></rect><rect x="46.5" y="40" width="7" height="20" rx="5" ry="5" fill="#0275d8" transform="rotate(-60 24.02 65)"><animate attributeName="opacity" from="1" to="0" dur="1s" begin="0.8333333333333334s" repeatCount="indefinite"/></rect><rect x="46.5" y="40" width="7" height="20" rx="5" ry="5" fill="#0275d8" transform="rotate(-30 -5.98 65)"><animate attributeName="opacity" from="1" to="0" dur="1s" begin="0.9166666666666666s" repeatCount="indefinite"/></rect></svg>
+  </app-root>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
+</body>
+
+</html>

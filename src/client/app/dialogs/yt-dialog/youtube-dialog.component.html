@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Embed YouTube Link<mat-divider></mat-divider></h1>
+<div mat-dialog-content>
+  <p>Enter a valid youtube URL</p>
+  <mat-form-field>
+    <input (keyup.enter)="onSubmit(url)" cdkFocusInitial matInput [(ngModel)]="url">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button (click)="onSubmit(url)" mat-raised-button color="primary">Send</button>
+</div>

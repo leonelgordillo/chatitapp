@@ -1,0 +1,10 @@
+.input-container {
+    text-align: center;
+    float: center;
+    margin: 20px auto;
+    max-width: 300px;
+  }
+
+  .buttonspace{
+    margin: 10px;
+}

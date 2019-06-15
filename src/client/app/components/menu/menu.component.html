@@ -1,0 +1,86 @@
+<mat-toolbar color="primary" class="fixed-toolbar mat-elevation-z6" layout="row">
+  <mat-toolbar-row>
+    <!-- <button mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>notifications</mat-icon>
+    </button> -->
+    <span [routerLink]="['/home']" style="cursor: pointer;">Chat It App</span>
+    <span class="spacer"></span>
+    <button mat-button color="primary" class="menubutton" *ngIf="!loggedIn" [routerLink]="['/login']">Login</button>
+    <button mat-button color="primary" class="menubutton" *ngIf="!loggedIn" routerLink="/register">Register</button>
+
+
+    <div *ngIf="loggedIn">
+      <!-- <span class="spacer"></span> -->
+
+      <!-- <button [style.background-image]="" mat-card-avatar class="profile-image" [matMenuTriggerFor]="menu">
+      </button> -->
+      <span style="padding-right:15px">
+      <button matTooltip="Rooms" style="vertical-align: text-bottom;" [routerLink]="['/rooms']" mat-button><mat-icon>input</mat-icon></button>
+      <button matTooltip="Notifications" (click)="drawer.toggle()" style="vertical-align: text-bottom;" mat-button>
+        <mat-icon [matBadge]="numOfNotifications" matBadgeColor="warn">notifications</mat-icon>
+      </button>
+    </span>
+      <img matTooltip="Logged in as {{username}}" [src]="profileImg" mat-card-avatar class="profile-image" [matMenuTriggerFor]="menu">
+      <mat-menu #menu="matMenu">
+        <h3 class="menu-greeting" *ngIf="loggedIn">Hi, {{username}}
+            <mat-divider style="margin-top:5px"></mat-divider>
+        </h3>
+
+        <button mat-menu-item routerLink="/profile">
+          <mat-icon>publish</mat-icon>
+          <span>My Profile</span>
+        </button>
+        <button mat-menu-item (click)="drawer2.toggle()">
+          <mat-icon>mode_comment</mat-icon>
+          <span>Friends</span>
+        </button>
+        <button mat-menu-item (click)="logout();drawer2.close()" >
+          <mat-icon>delete</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-drawer-container [ngStyle]="{'top':matDrawerModify === 'small' ? '56px' : '64px' }" class="container">
+  <mat-drawer #drawer class="sidenav">
+    <app-notification *ngIf="loggedIn">
+
+    </app-notification>
+  </mat-drawer>
+
+  <mat-drawer position="end" mode="over" #drawer2 class="friendlist">
+      <app-friend-list *ngIf="loggedIn">
+
+      </app-friend-list>
+  </mat-drawer>
+  
+
+  <div class="sidenav-content">
+    <router-outlet></router-outlet>
+  </div>
+  
+</mat-drawer-container>
+
+<!-- <mat-drawer-container class="container">
+    <mat-drawer position="end" #drawer2 class="sidenav">
+      <button color="primary" (click)="drawer.toggle()" mat-button routerLink="/rooms">Rooms</button>
+      <button color="primary" (click)="drawer.toggle()" mat-button routerLink="/messages">Media</button>
+      <button color="primary" (click)="drawer.toggle()" mat-button routerLink="/orders">Orders</button>
+  
+    </mat-drawer>
+
+    <div class="sidenav-content">
+  
+    </div>
+  </mat-drawer-container> -->
+
+<!-- <mat-drawer-container class="container" position="end">
+    <mat-drawer #drawer2 class="sidenav">
+      <button color="primary" (click)="drawer.toggle()" mat-button routerLink="/rooms">Rooms</button>
+      <button color="primary" (click)="drawer.toggle()" mat-button routerLink="/messages">Media</button>
+      <button color="primary" (click)="drawer.toggle()" mat-button routerLink="/orders">Orders</button>
+  
+    </mat-drawer>
+</mat-drawer-container> -->

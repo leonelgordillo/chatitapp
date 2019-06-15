@@ -1,0 +1,14 @@
+[
+  { 
+    "username": "admin", 
+    "email": "whodat@email.com", 
+    "password": "Pt4bvZSSI4KN4g",
+    "access": "basic"
+  },
+  { "username": "vmejia", 
+    "email": "who2dat@email.com", 
+    "password": "ANz75xWo3n2J3Y",
+    "access": "basic"
+  }
+]
+

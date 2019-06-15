@@ -1,0 +1,27 @@
+<div class ="input-container"> 
+  <mat-card>
+    <mat-card-title>Registration</mat-card-title>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <mat-form-field>
+              <input style="width:auto" [ngClass]= "{'error': isValid('username')}" matInput placeholder="Username" formControlName="username">
+          </mat-form-field>
+          <mat-icon matTooltip="Must be between 4 and 20 alpha-numeric characters">info_outline</mat-icon>
+          <mat-form-field>
+              <input style="width:auto" [ngClass]= "{'error': isValid('email')}" type="email" matInput placeholder="Email" formControlName="email">
+          </mat-form-field>
+          <mat-icon matTooltip="Enter valid email address to be able verify your account">info_outline</mat-icon>
+          <mat-form-field>
+              <input style="width:auto" [ngClass]= "{'error': isValid('password')}" type="password" matInput placeholder="Password" formControlName="password">
+          </mat-form-field>
+          <mat-icon matTooltip="Must be a combination of at least 7 numbers and letters">info_outline</mat-icon>
+          <mat-form-field>
+              <input style="width:auto" [ngClass]= "{'error': isValid('confirmPass')}" type="password" matInput placeholder="Confirm Password" formControlName="confirmPass">
+          </mat-form-field>
+          <mat-icon></mat-icon>
+
+          <div class="alert alert-danger"an *ngIf="form.errors?.mismatchedFields">Passwords do not match</div>
+          <br>
+          <button type="submit" mat-raised-button color="primary">Register</button>
+      </form>
+  </mat-card>
+  </div>

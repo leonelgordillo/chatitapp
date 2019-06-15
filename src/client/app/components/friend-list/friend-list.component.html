@@ -1,0 +1,42 @@
+
+<mat-tab-group>
+    <mat-tab label="Friends">
+        <mat-list *ngFor="let friend of friendList">
+
+            <!-- Add avatar profile and get ref from server with directory + username.jpg etc -->
+            <button class="friend-button" mat-button [matMenuTriggerFor]="menu">
+              <mat-icon *ngIf="onlineUsers" [ngClass]="{'online-icon': onlineUsers.includes(friend.username)}">wb_sunny</mat-icon>
+
+              {{friend.username}}</button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item [routerLink]="['/profile', friend.username]">
+                  <span>View Profile</span>
+                </button>
+                <button mat-menu-item (click)="openPrivateChat(friend)">
+                  <span>Send Message</span>
+                </button>
+                <button mat-menu-item (click)="removeFriend(friend)">
+                  <mat-icon>delete</mat-icon>
+                  <span>Unfriend</span>
+                </button>
+              </mat-menu>
+          </mat-list>
+    </mat-tab>
+    
+    <mat-tab label="Pending">
+        <mat-list *ngFor="let req of friendReqRec">
+
+            <!-- Add avatar profile and get ref from server with directory + username.jpg etc -->
+            <button class="pending-friend-button" mat-button [matMenuTriggerFor]="menu">{{req.from}}</button>
+            <mat-menu  #menu="matMenu">
+                <button mat-menu-item (click)="acceptFriendReq(req.from)">
+                  <span>Accept</span>
+                </button>
+                <button mat-menu-item (click)="rejectFriendRequest(req.from)">
+                  <span>Reject</span>
+                </button>
+              </mat-menu>
+          </mat-list>
+    </mat-tab>
+
+  </mat-tab-group>

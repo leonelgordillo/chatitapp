@@ -1,0 +1,23 @@
+.add-files-btn {
+  float: right;
+}
+
+:host {
+  height: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.preview-media{
+  height: 30%;
+  width: 30%;
+}
+
+.actions {
+  justify-content: flex-end;
+}
+
+.container {
+  height: 100%;
+}

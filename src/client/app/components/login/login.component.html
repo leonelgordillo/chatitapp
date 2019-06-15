@@ -1,0 +1,21 @@
+<div class ="input-container">
+    <mat-card>
+        <mat-card-title>Login</mat-card-title>
+        <div class="column">
+        <mat-form-field>
+            <input  [(ngModel)]="loginData.username" matInput placeholder="Username">
+        </mat-form-field>
+        </div>
+        <div class="column">
+        <mat-form-field>
+            <input [(ngModel)]="loginData.password" matInput placeholder="Password" type="password" (keyup.enter)="login()">
+        </mat-form-field>
+        </div>
+        <button type="submit" class="buttonspace" mat-raised-button color="primary" (click)="login()">Login</button>
+        <div>
+                <span>Not registered yet?</span>
+                <button type="submit" mat-raised-button color="secondary" [routerLink]="['/register']" class="buttonspace">Register Now!</button>
+        </div>
+    </mat-card>
+</div>
+

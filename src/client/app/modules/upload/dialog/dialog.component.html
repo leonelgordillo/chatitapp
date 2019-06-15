@@ -1,0 +1,38 @@
+<input type="file" #file style="display: none" (change)="onFileAdded()" />
+
+<div class="container">
+  <h1 mat-dialog-title>{{title}}<mat-divider></mat-divider></h1>
+  
+  <mat-card-subtitle>
+    Upload an image, GIF, or webm/MP4 file
+  </mat-card-subtitle>
+  <h4 mat-line>{{uploadedFile?.name}}</h4>
+  <mat-progress-bar *ngIf="uploading" mode="indeterminate" ></mat-progress-bar>
+
+
+  <div *ngIf="fileType == 'image'">
+    <img [src]='safeUrl' alt="" class="preview-media">
+  </div>
+
+  <div *ngIf="fileType == 'video'">
+    <h4>
+      <video class="preview-media" autoplay='false' controls='true'>
+        <source [src]='safeUrl' type="video/webm" />
+      </video>
+    </h4>
+  </div>
+
+  <button *ngIf="uploadedFile" (click)="removeFile()" mat-button>
+      Remove <mat-icon>close</mat-icon> </button>
+  <!-- These are the actions of the dialog, containing the primary and the cancel button-->
+  <mat-dialog-actions class="actions">
+    <button *ngIf="showCancelButton" mat-button mat-dialog-close>Cancel</button>
+    <button cdkFocusInitial [disabled]="uploading || uploadSuccessful || uploadedFile" mat-raised-button color="secondary" class="add-files-btn" (click)="addFiles()">
+        Add File
+    </button>
+    <button mat-raised-button color="primary"  [disabled]="!canBeClosed" (click)="closeDialog()">
+      {{primaryButtonText}}
+    </button>
+  </mat-dialog-actions>
+
+</div>
