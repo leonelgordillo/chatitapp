@@ -495,7 +495,7 @@ export class RoomComponent implements OnInit, AfterViewInit, OnDestroy {
 
   scrollToBottom() {
 
-    const notScrolledToBottom = this.sidenavContainer.scrollable.getElementRef().nativeElement.scrollTop !== this.sidenavContainer.scrollable.getElementRef().nativeElement.scrollHeight;
+    // const notScrolledToBottom = this.sidenavContainer.scrollable.getElementRef().nativeElement.scrollTop !== this.sidenavContainer.scrollable.getElementRef().nativeElement.scrollHeight;
     if (!this.scrollDisabled) {
       setTimeout(() => {
         this.sidenavContainer.scrollable.getElementRef().nativeElement.scrollTop = this.sidenavContainer.scrollable.getElementRef().nativeElement.scrollHeight;
