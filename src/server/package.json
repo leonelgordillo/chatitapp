@@ -17,7 +17,7 @@
   "private": true,
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.20.1",
     "bunyan": "^1.8.12",
     "cookie-parser": "^1.4.3",
     "core-js": "^2.6.1",
